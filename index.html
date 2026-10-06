@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Di — Vêtements modernes et élégants</title>
+<meta name="description" content="Di est une marque de vêtements modernes et élégants pour exprimer son style au quotidien. Collections, nouveautés et commande.">
+<link rel="stylesheet" href="./css/styles.css?v=20261006">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js",
+    "three/examples/jsm/loaders/SVGLoader.js": "./vendor/SVGLoader.js"
+  }
+}
+</script>
+</head>
+<body>
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader-inner">
+    <span class="loader-value"><span id="loader-count">00</span><span class="loader-unit">%</span></span>
+    <span class="loader-bar"><span id="loader-fill"></span></span>
+    <span class="loader-hint">Chargement</span>
+  </div>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('loader'), count = document.getElementById('loader-count'), fill = document.getElementById('loader-fill');
+  var start = performance.now(), ready = false, rampAt = 0, shownAtRamp = 0, shown = 0, finished = false;
+  var MIN_HOLD = 0, RAMP = 180;   // ms: minimum time on screen, then the run to 100
+  document.body.classList.add('is-loading');
+  function finish() {
+    if (finished) return;
+    finished = true;
+    count.textContent = '100';
+    fill.style.transform = 'scaleX(1)';
+    el.classList.add('is-done');
+    document.body.classList.remove('is-loading');
+    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 900);
+  }
+  function tick(now) {
+    if (finished) return;
+    if (ready && !rampAt && now - start >= MIN_HOLD) { rampAt = now; shownAtRamp = shown; }
+    if (rampAt) {
+      var k = Math.min(1, (now - rampAt) / RAMP);
+      shown = shownAtRamp + (100 - shownAtRamp) * (1 - Math.pow(1 - k, 3));
+    } else {
+      // Time-based pseudo progress while the modules and the scene are prepared.
+      shown = 92 * (1 - Math.exp(-(now - start) / 1600));
+    }
+    count.textContent = String(Math.round(shown)).padStart(2, '0');
+    fill.style.transform = 'scaleX(' + (shown / 100) + ')';
+    if (rampAt && shown >= 99.5) { finish(); return; }
+    requestAnimationFrame(tick);
+  }
+  window.__glassLoader = { done: function () { ready = true; } };
+  requestAnimationFrame(tick);
+  setTimeout(function () { window.__glassLoader.done(); }, 15000);   // never trap the visitor
+  setTimeout(finish, 17000);
+})();
+</script>
+<div class="cursor-inner"></div>
+<div class="cursor-outer"><span class="cursor-ticks"><span></span><span></span><span></span><span></span></span></div>
+<div class="cursor-label" aria-hidden="true">000</div>
+<div class="cinematic-container">
+<div class="main-header">
+  <a class="brand" href="#slide-1">
+    <span class="brand-mark" aria-hidden="true"><svg role="img" viewBox="180 213 400 370" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M188 225h85c118 0 187 66 187 175s-69 175-187 175h-85V225zm83 293c80 0 119-41 119-118s-39-118-119-118h-20v236h20zM490 340h79v235h-79zM529.5 303c-25 0-43-17-43-41s18-41 43-41 43 17 43 41-18 41-43 41z"/></svg></span>
+    <span class="brand-text">Di</span>
+  </a>
+  <nav class="header-nav" aria-label="Chapitres">
+    <a href="#slide-1" class="nav-link is-active">Accueil</a>
+    <a href="#slide-2" class="nav-link">La marque</a>
+    <a href="#slide-3" class="nav-link">Collections</a>
+    <a href="#slide-4" class="nav-link">Chiffres</a>
+  </nav>
+  <div class="header-actions">
+    <span class="header-counter" aria-hidden="true"><span id="brand-chapter">01</span><span class="counter-sep"></span>05</span>
+    <a href="#contact" class="contact-btn">Contact <span class="btn-arrow">&#8599;</span></a>
+  </div>
+</div>
+
+<div class="slide" id="slide-1">
+  <h2 class="slide-title">Votre style, <br>chaque jour.</h2>
+  <div class="desc-row">
+    <p class="slide-desc col-1">Di crée des vêtements modernes et élégants, pensés pour être portés au quotidien. Pour celles et ceux qui veulent affirmer leur style, sans en faire trop.</p>
+  </div>
+</div>
+
+<div class="slide" id="slide-2">
+  <h2 class="slide-title">Une marque, <br>une signature.</h2>
+  <p class="slide-desc">Di est une nouvelle marque de vêtements aux coupes nettes et aux lignes épurées. Chaque collection se pense comme une garde-robe : des essentiels faciles à porter, quelques pièces fortes, rien de superflu. Des vêtements qui s'associent entre eux et vous suivent du matin au soir.</p>
+</div>
+
+<div class="slide" id="slide-3">
+  <h2 class="slide-title">Ce que Di <br>vous propose</h2>
+  <ul class="benefits">
+    <li class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m10 3 2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4L5.5 17l.9-5L2.8 8.3l5-.7L10 3z"/></svg></span><p>Des collections aux coupes modernes, faciles à associer entre elles.</p></li>
+    <li class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3 3 17h14L10 3z"/><path d="M4.5 12.5h11" opacity=".55"/></svg></span><p>Des nouveautés régulières pour faire évoluer votre garde-robe.</p></li>
+    <li class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.8 8 7l-1.6 1.6a9 9 0 0 0 5 5L13 12l3.2 1.8-.6 2.4c-.2.7-.9 1.1-1.6 1A13.6 13.6 0 0 1 3.8 6.2c-.1-.7.3-1.4 1-1.6l1.4-.8z"/></svg></span><p>Une commande simple : un message suffit, conseils de taille compris.</p></li>
+    <li class="benefit"><span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h8v8h-8z"/><path d="M10.5 9.5h3l2.5 2.5v2.5h-5.5z"/><circle cx="6" cy="15.5" r="1.4"/><circle cx="13" cy="15.5" r="1.4"/></svg></span><p>Une livraison suivie, de la commande jusqu'à votre porte.</p></li>
+  </ul>
+</div>
+
+<div class="slide" id="slide-4">
+  <h2 class="slide-title">Di en <br>trois chiffres</h2>
+  <p class="slide-desc">Quelques repères sur la marque depuis son lancement.</p>
+  <dl class="figures">
+    <div class="figure"><dt><span class="figure-value" data-count="24" data-decimals="0">24</span></dt><dd>pièces dans<br>la collection actuelle</dd></div>
+    <div class="figure"><dt><span class="figure-value" data-count="48" data-decimals="0">48</span> h</dt><dd>délai moyen<br>d'expédition</dd></div>
+    <div class="figure"><dt><span class="figure-value" data-count="4.9" data-decimals="1">4.9</span> / 5</dt><dd>note moyenne<br>de nos clients</dd></div>
+  </dl>
+</div>
+</div>
+
+<div class="scroll-stage" aria-hidden="true"></div>
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact-inner">
+    <div class="contact-intro">
+      <p class="contact-eyebrow"><span class="eyebrow-dot"></span>Contact / 05</p>
+      <h2 class="contact-title" id="contact-title"><span class="line"><span class="line-inner">Trouvez votre</span></span><span class="line muted"><span class="line-inner">prochaine pièce.</span></span></h2>
+      <p class="contact-lead">Une commande, une question de taille, une collaboration ?<br>Écrivez-nous.</p>
+      <a class="contact-mail" href="mailto:monkey.di.jorys@gmail.com">monkey.di.jorys@gmail.com <span class="arrow">&#8599;</span></a>
+    </div>
+    <form class="contact-card" id="contact-form" data-email="monkey.di.jorys@gmail.com">
+      <div class="card-head"><span>Votre message</span><span class="arrow">&#8599;</span></div>
+      <div class="field-grid">
+        <label class="field"><span class="field-label">Votre nom <em>*</em></span><input type="text" name="name" placeholder="Nom et prénom" autocomplete="name" required></label>
+        <label class="field"><span class="field-label">Votre e-mail <em>*</em></span><input type="email" name="email" placeholder="vous@exemple.com" autocomplete="email" required></label>
+        <label class="field field-wide"><span class="field-label">Pièce ou collection <small>optionnel</small></span><input type="text" name="company" placeholder="Ex. : chemise noire, taille M" autocomplete="organization"></label>
+        <label class="field field-wide"><span class="field-label">Votre message <em>*</em></span><textarea name="project" rows="4" placeholder="Votre commande, votre question…" required></textarea></label>
+      </div>
+      <div class="card-foot">
+        <p class="card-note">Votre messagerie s'ouvrira<br>avec le message prêt à envoyer.</p>
+        <button type="submit" class="pill-btn"><span class="btn-label">Préparer mon e-mail</span> <span class="arrow">&#8599;</span></button>
+      </div>
+    </form>
+  </div>
+  <footer class="contact-footer">
+    <span>&copy; 2026 &mdash; Di</span>
+    <span class="footer-spec">Style · Identité · Di</span>
+    <a href="#slide-1" class="footer-top">Haut de page <span aria-hidden="true">&uarr;</span></a>
+  </footer>
+</section>
+<div class="grid-horizontal-line"></div>
+<div class="header-progress" aria-hidden="true"><span id="header-progress-fill"></span></div>
+<div class="story-progress" aria-hidden="true">
+  <div class="story-dashes">
+    <div class="story-dash"><div class="story-dash-fill" id="dash-fill-1"></div></div>
+    <div class="story-dash"><div class="story-dash-fill" id="dash-fill-2"></div></div>
+    <div class="story-dash"><div class="story-dash-fill" id="dash-fill-3"></div></div>
+    <div class="story-dash"><div class="story-dash-fill" id="dash-fill-4"></div></div>
+  </div>
+</div>
+<canvas id="webgl"></canvas>
+<script type="module" src="./js/app.js?v=20261006"></script>
+</body>
+</html>
