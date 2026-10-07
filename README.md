@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Site Premium 3D Glass
 
 Site vitrine d'une seule page, piloté au scroll : un objet en verre optique se
@@ -74,3 +75,6 @@ serve.py                   Petit serveur local
 build_monofichier.py       Produit version-monofichier.html
 licenses/                  Licences Three.js et Space Grotesk
 ```
+=======
+# di
+>>>>>>> 8929a1cc97f01dd401af0dae50e69b1647423f86
